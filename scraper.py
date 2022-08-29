@@ -27,7 +27,13 @@ for tr_tag in soup.find_all("tr", attrs={"class": "fact_row"}):
 
 headers = ["Brown dwarf", "Constellation", "Right ascension", "Declination", "App.mag.", "Distance", "Spectral type", "Mass", "Radius", "Discovery year"]
 
+dwarf_data_rows = table_rows[1:]
+
+for brown_dwarf_stars in dwarf_data_rows:
+    brown_dwarf_stars[8] * 0.000954588
+    brown_dwarf_stars[9] * 0.102763
+
 with open("final.csv", "w") as f:
-        csvwriter = csv.writer(f)
-        csvwriter.writerow(headers)
-        csvwriter.writerows(brown_dwarf_stars)
+    csvwriter = csv.writer(f)
+    csvwriter.writerow(headers)
+    csvwriter.writerows(brown_dwarf_stars)
